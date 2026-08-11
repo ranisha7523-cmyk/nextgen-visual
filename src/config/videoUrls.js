@@ -23,7 +23,7 @@ export const LOCAL_VIDEO_PATHS = {
 
 export const VIDEO_URLS = {
   // 1. HERO VIDEO (Original file: 0721.mp4)
-  hero: "",
+  hero: "https://files.catbox.moe/blpven.mp4",
 
   // 2-5. AI VIDEOS (Original files: ai-01.mp4, ai-02.mp4, ai-03.mp4, ai-04.mp4)
   aiVideos: [

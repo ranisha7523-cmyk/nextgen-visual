@@ -35,10 +35,10 @@ export const VIDEO_URLS = {
 
   // 6-9. VIDEO EDITING (Original files: edit-01.mp4, edit-02.mp4, edit-03.mp4, edit-04.mp4)
   editingVideos: [
-    "", // Editing Video 1: edit-01.mp4 (High-Energy Reels & Shorts Edit)
-    "", // Editing Video 2: edit-02.mp4 (Commercial Motion Graphics Edit)
-    "", // Editing Video 3: edit-03.mp4 (Cinematic Brand Story Edit)
-    ""  // Editing Video 4: edit-04.mp4 (Masterclass & YouTube Video Edit)
+    "https://files.catbox.moe/1ypeh8.mp4", // Editing Video 1: edit-01.mp4 (High-Energy Reels & Shorts Edit)
+    "https://files.catbox.moe/l5k180.mp4", // Editing Video 2: edit-02.mp4 (Commercial Motion Graphics Edit)
+    "https://files.catbox.moe/kw4fd3.mp4", // Editing Video 3: edit-03.mp4 (Cinematic Brand Story Edit)
+    "https://files.catbox.moe/blpven.mp4"  // Editing Video 4: edit-04.mp4 (Masterclass & YouTube Video Edit)
   ]
 };
 
@@ -60,7 +60,7 @@ export const ACTIVE_VIDEO_URLS = {
   ai04: getActiveVideoUrl(VIDEO_URLS.aiVideos[3], LOCAL_VIDEO_PATHS.ai04),
   edit01: getActiveVideoUrl(VIDEO_URLS.editingVideos[0], LOCAL_VIDEO_PATHS.edit01),
   edit02: getActiveVideoUrl(VIDEO_URLS.editingVideos[1], LOCAL_VIDEO_PATHS.edit02),
-  edit03: getActiveVideoUrl(VIDEO_URLS.editingVideos[3], LOCAL_VIDEO_PATHS.edit03),
+  edit03: getActiveVideoUrl(VIDEO_URLS.editingVideos[2], LOCAL_VIDEO_PATHS.edit03),
   edit04: getActiveVideoUrl(VIDEO_URLS.editingVideos[3], LOCAL_VIDEO_PATHS.edit04),
 };
 

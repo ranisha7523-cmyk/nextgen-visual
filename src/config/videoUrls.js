@@ -27,7 +27,7 @@ export const VIDEO_URLS = {
 
   // 2-5. AI VIDEOS (Original files: ai-01.mp4, ai-02.mp4, ai-03.mp4, ai-04.mp4)
   aiVideos: [
-    "", // AI Video 1: ai-01.mp4 (AI UGC Promotional Campaign)
+    "https://files.catbox.moe/3ykk1z.mp4", // AI Video 1: ai-01.mp4 (AI UGC Promotional Campaign)
     "", // AI Video 2: ai-02.mp4 (AI Product Commercial Spotlight)
     "", // AI Video 3: ai-03.mp4 (Cinematic AI Motion Production)
     ""  // AI Video 4: ai-04.mp4 (AI Creative Visual Experience)

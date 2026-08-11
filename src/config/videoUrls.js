@@ -1,12 +1,11 @@
 /**
  * CENTRALIZED VIDEO CONFIGURATION FOR NEXTGEN VISUAL
  * 
- * Instructions:
- * To serve videos from external HTTPS hosting (Google Drive, Cloudflare R2, AWS S3, Bunny CDN, Supabase, Vercel Blob, etc.),
- * paste the HTTPS video URL inside the corresponding string field below.
+ * All 9 portfolio videos are compressed under 19 MB and bundled directly in the project.
+ * Cloudflare Workers Assets supports up to 25 MB per asset.
  * 
- * If a field is left empty (""), the website will automatically use the local fallback video path
- * so that video playback never breaks.
+ * If a field is left empty (""), the website will automatically use the local bundled video path
+ * for 100% reliable, zero-latency HD video streaming.
  */
 
 export const LOCAL_VIDEO_PATHS = {
@@ -22,34 +21,32 @@ export const LOCAL_VIDEO_PATHS = {
 };
 
 export const VIDEO_URLS = {
-  // 1. HERO VIDEO (Original file: 0721.mp4)
-  hero: "https://lh3.googleusercontent.com/d/1gsMlhiVUfCxQgVGkbFo7qOAo4Q0-F9KZ",
+  // 1. HERO VIDEO (Original file: 0721.mp4 - Compressed 18.6 MB)
+  hero: "",
 
-  // 2-5. AI VIDEOS (Original files: ai-01.mp4, ai-02.mp4, ai-03.mp4, ai-04.mp4)
+  // 2-5. AI VIDEOS (Original files: ai-01.mp4 to ai-04.mp4 - All < 16 MB)
   aiVideos: [
-    "https://lh3.googleusercontent.com/d/1EsyksAbK_nfx-a6gjIm4P6Z3MMvHz4Q3", // AI Video 1: ai-01.mp4 (AI UGC Promotional Campaign)
-    "https://lh3.googleusercontent.com/d/1c4FymHlocDq62uQ5MZSf9eXVRCKYEcha", // AI Video 2: ai-02.mp4 (AI Product Commercial Spotlight)
-    "https://lh3.googleusercontent.com/d/1tz20MgvXPndLWI26O00nsUSmHIiWNVE-", // AI Video 3: ai-03.mp4 (Cinematic AI Motion Production)
-    "https://lh3.googleusercontent.com/d/1mc3sT5qHiu0UMJm45F8CVNAf5Ne1IQsy"  // AI Video 4: ai-04.mp4 (AI Creative Visual Experience)
+    "", // AI Video 1: ai-01.mp4 (AI UGC Promotional Campaign)
+    "", // AI Video 2: ai-02.mp4 (AI Product Commercial Spotlight)
+    "", // AI Video 3: ai-03.mp4 (Cinematic AI Motion Production)
+    ""  // AI Video 4: ai-04.mp4 (AI Creative Visual Experience)
   ],
 
-  // 6-9. VIDEO EDITING (Original files: edit-01.mp4, edit-02.mp4, edit-03.mp4, edit-04.mp4)
+  // 6-9. VIDEO EDITING (Original files: edit-01.mp4 to edit-04.mp4 - All < 19 MB)
   editingVideos: [
-    "https://lh3.googleusercontent.com/d/1kxH6cMu_OJZuABNAThk_MuUxIiF8bI9i", // Editing Video 1: edit-01.mp4 (High-Energy Reels & Shorts Edit)
-    "https://lh3.googleusercontent.com/d/1gJUjiYjDZxVltmlW-sDUrQkAdu3QPmfh", // Editing Video 2: edit-02.mp4 (Commercial Motion Graphics Edit)
-    "https://lh3.googleusercontent.com/d/1dhCHvWk0-cuvP60gKfgNlb1DLOAKE_Rq", // Editing Video 3: edit-03.mp4 (Cinematic Brand Story Edit)
-    "https://lh3.googleusercontent.com/d/1jKP4ZAycVw555lNLFu58YQclCx_kfA65"  // Editing Video 4: edit-04.mp4 (Masterclass & YouTube Video Edit)
+    "", // Editing Video 1: edit-01.mp4 (High-Energy Reels & Shorts Edit)
+    "", // Editing Video 2: edit-02.mp4 (Commercial Motion Graphics Edit)
+    "", // Editing Video 3: edit-03.mp4 (Cinematic Brand Story Edit)
+    ""  // Editing Video 4: edit-04.mp4 (Masterclass & YouTube Video Edit)
   ]
 };
 
 /**
  * Returns active video URL (External HTTPS URL if provided, otherwise Local Fallback)
- * Automatically converts Google Drive share links into direct streaming links.
  */
 export function getActiveVideoUrl(externalUrl, fallbackLocalPath) {
   if (externalUrl && typeof externalUrl === 'string' && externalUrl.trim().length > 0) {
     const trimmed = externalUrl.trim();
-    // Auto-transform Google Drive share links to direct stream URL
     const driveMatch = trimmed.match(/\/file\/d\/([^\/]+)/);
     if (driveMatch && driveMatch[1]) {
       return `https://lh3.googleusercontent.com/d/${driveMatch[1]}`;

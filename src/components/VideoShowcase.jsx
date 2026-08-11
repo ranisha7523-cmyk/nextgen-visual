@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, Sparkles, ArrowRight } from 'lucide-react';
 import VideoModal from './VideoModal';
 import AnimatedSection from './AnimatedSection';
+import { VIDEO_URLS, LOCAL_VIDEO_PATHS, getActiveVideoUrl } from '../config/videoUrls';
 
 export default function VideoShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -23,7 +24,7 @@ export default function VideoShowcase() {
       title: "AI UGC Promotional Campaign",
       category: "AI VIDEO",
       description: "High-converting UGC advertorial crafted with AI digital avatars and cinematic visual effects.",
-      videoUrl: "/assets/videos/ai-videos/ai-01.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.aiVideos[0], LOCAL_VIDEO_PATHS.ai01),
       badge: "FEATURED"
     },
     {
@@ -31,7 +32,7 @@ export default function VideoShowcase() {
       title: "High-Energy Reels & Shorts Edit",
       category: "VIDEO EDITING",
       description: "Fast-paced social media edit featuring animated captions, sound FX, and speed ramps.",
-      videoUrl: "/assets/videos/editing-videos/edit-01.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.editingVideos[0], LOCAL_VIDEO_PATHS.edit01),
       badge: "FEATURED"
     },
     {
@@ -39,7 +40,7 @@ export default function VideoShowcase() {
       title: "AI Product Commercial Spotlight",
       category: "AI VIDEO",
       description: "Hyper-realistic AI visual commercial created for high-performing ad campaigns.",
-      videoUrl: "/assets/videos/ai-videos/ai-02.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.aiVideos[1], LOCAL_VIDEO_PATHS.ai02),
       badge: "FEATURED"
     },
     {
@@ -47,7 +48,7 @@ export default function VideoShowcase() {
       title: "Commercial Motion Graphics Edit",
       category: "VIDEO EDITING",
       description: "Professional post-production editing blending live footage with sleek motion graphics.",
-      videoUrl: "/assets/videos/editing-videos/edit-02.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.editingVideos[1], LOCAL_VIDEO_PATHS.edit02),
       badge: "FEATURED"
     },
     {
@@ -55,7 +56,7 @@ export default function VideoShowcase() {
       title: "Cinematic AI Motion Production",
       category: "AI VIDEO",
       description: "High-impact cinematic AI content featuring dynamic lighting and sound design.",
-      videoUrl: "/assets/videos/ai-videos/ai-03.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.aiVideos[2], LOCAL_VIDEO_PATHS.ai03),
       badge: "FEATURED"
     },
     {
@@ -63,7 +64,7 @@ export default function VideoShowcase() {
       title: "Cinematic Brand Story Edit",
       category: "VIDEO EDITING",
       description: "Color-graded, sound-designed brand documentary edit with smooth visual transitions.",
-      videoUrl: "/assets/videos/editing-videos/edit-03.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.editingVideos[2], LOCAL_VIDEO_PATHS.edit03),
       badge: "FEATURED"
     },
     {
@@ -71,7 +72,7 @@ export default function VideoShowcase() {
       title: "AI Creative Visual Experience",
       category: "AI VIDEO",
       description: "Engaging AI creative production engineered for maximum social media hook rates.",
-      videoUrl: "/assets/videos/ai-videos/ai-04.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.aiVideos[3], LOCAL_VIDEO_PATHS.ai04),
       badge: "FEATURED"
     },
     {
@@ -79,7 +80,7 @@ export default function VideoShowcase() {
       title: "Masterclass & YouTube Video Edit",
       category: "VIDEO EDITING",
       description: "Engaging long-form & short-form video editing designed for maximum viewer retention.",
-      videoUrl: "/assets/videos/editing-videos/edit-04.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.editingVideos[3], LOCAL_VIDEO_PATHS.edit04),
       badge: "FEATURED"
     }
   ];

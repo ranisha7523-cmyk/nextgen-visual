@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Play, ExternalLink, Sparkles, Globe } from 'lucide-react';
 import VideoModal from './VideoModal';
 import AnimatedSection from './AnimatedSection';
+import { VIDEO_URLS, LOCAL_VIDEO_PATHS, getActiveVideoUrl } from '../config/videoUrls';
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -50,7 +51,7 @@ export default function Portfolio() {
       category: "AI VIDEOS",
       description: "Cinematic AI-generated product commercial with hyper-realistic visual effects and AI voiceover.",
       type: "video",
-      videoUrl: "/assets/videos/ai-videos/ai-01.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.aiVideos[0], LOCAL_VIDEO_PATHS.ai01),
       tag: "AI UGC & Commercial"
     },
     // 5. Actual User AI Video 2
@@ -60,7 +61,7 @@ export default function Portfolio() {
       category: "AI VIDEOS",
       description: "Engaging AI spokesperson and commercial video created for high-performing ad campaigns.",
       type: "video",
-      videoUrl: "/assets/videos/ai-videos/ai-02.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.aiVideos[1], LOCAL_VIDEO_PATHS.ai02),
       tag: "AI Ad Creative"
     },
     // 6. Actual User Editing Video 1
@@ -70,7 +71,7 @@ export default function Portfolio() {
       category: "VIDEO EDITING",
       description: "Fast-paced, motion-graphics driven viral video edits engineered for social media retention.",
       type: "video",
-      videoUrl: "/assets/videos/editing-videos/edit-01.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.editingVideos[0], LOCAL_VIDEO_PATHS.edit01),
       tag: "Short Form Content"
     },
     // 7. Actual User Editing Video 2
@@ -80,7 +81,7 @@ export default function Portfolio() {
       category: "VIDEO EDITING",
       description: "Color-graded, sound-designed promotional video with custom motion graphics.",
       type: "video",
-      videoUrl: "/assets/videos/editing-videos/edit-02.mp4",
+      videoUrl: getActiveVideoUrl(VIDEO_URLS.editingVideos[1], LOCAL_VIDEO_PATHS.edit02),
       tag: "Cinematic Post-Prod"
     }
   ];

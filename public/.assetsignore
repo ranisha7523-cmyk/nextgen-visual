@@ -1,0 +1,3 @@
+# Exclude large videos from Cloudflare Workers Assets deployment (25 MiB limit)
+assets/videos/**
+*.mp4

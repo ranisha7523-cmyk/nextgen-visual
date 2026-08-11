@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { VIDEO_URLS, LOCAL_VIDEO_PATHS, getActiveVideoUrl } from '../config/videoUrls';
 
 export default function Hero() {
   const videoRef = useRef(null);
+  const heroVideoSrc = getActiveVideoUrl(VIDEO_URLS.hero, LOCAL_VIDEO_PATHS.hero);
 
   useEffect(() => {
     // Force autoplay muted video playback across browsers
@@ -115,8 +117,7 @@ export default function Hero() {
                     controls={false}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   >
-                    <source src="/assets/videos/hero/0721.mp4" type="video/mp4" />
-                    <source src="/assets/videos/hero/hero-video.mp4" type="video/mp4" />
+                    <source src={heroVideoSrc} type="video/mp4" />
                     Your browser does not support HTML5 video.
                   </video>
 

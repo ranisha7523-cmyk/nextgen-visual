@@ -150,14 +150,16 @@ export default function Portfolio() {
                   {project.type === 'video' ? (
                     <>
                       <video
+                        key={project.videoUrl}
+                        src={project.videoUrl}
                         autoPlay
                         muted
                         loop
                         playsInline
+                        preload="auto"
+                        referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      >
-                        <source src={project.videoUrl} type="video/mp4" />
-                      </video>
+                      />
 
                       {/* Play Badge */}
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors flex items-center justify-center">

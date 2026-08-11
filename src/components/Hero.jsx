@@ -110,16 +110,17 @@ export default function Hero() {
                   {/* HTML5 REAL VIDEO */}
                   <video
                     ref={videoRef}
+                    key={heroVideoSrc}
+                    src={heroVideoSrc}
                     autoPlay
                     muted
                     loop
                     playsInline
+                    preload="auto"
+                    referrerPolicy="no-referrer"
                     controls={false}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  >
-                    <source src={heroVideoSrc} type="video/mp4" />
-                    Your browser does not support HTML5 video.
-                  </video>
+                  />
 
                   {/* Live Badge Overlay */}
                   <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full flex items-center gap-2 border border-white/20 shadow-lg">

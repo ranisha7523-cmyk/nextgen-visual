@@ -71,10 +71,13 @@ export default function VideoModal({ video, onClose }) {
         <div className="relative flex-1 bg-black flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[450px]">
           <video
             ref={videoRef}
-            src={video.videoUrl || video.url || '/assets/videos/hero-video.mp4'}
+            key={video.videoUrl || video.url}
+            src={video.videoUrl || video.url || '/assets/videos/hero/0721.mp4'}
             autoPlay
             loop
             playsInline
+            preload="auto"
+            referrerPolicy="no-referrer"
             muted={isMuted}
             className="w-full h-full object-contain max-h-[70vh]"
             onClick={togglePlay}

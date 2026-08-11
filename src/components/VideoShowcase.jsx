@@ -339,14 +339,15 @@ export default function VideoShowcase() {
                   <div className="relative aspect-[9/14] bg-black overflow-hidden group/card">
                     <video
                       ref={(el) => (videoRefs.current[idx] = el)}
+                      key={video.videoUrl}
+                      src={video.videoUrl}
                       muted={isMuted}
                       loop
                       playsInline
-                      preload="metadata"
+                      preload="auto"
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-700"
-                    >
-                      <source src={video.videoUrl} type="video/mp4" />
-                    </video>
+                    />
 
                     {/* TOP-RIGHT VOLUME TOGGLE BUTTON (Exact match to user's screenshot) */}
                     {isActive && (

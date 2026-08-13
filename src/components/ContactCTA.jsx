@@ -21,15 +21,51 @@ export default function ContactCTA() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Simulate architecture-ready submission handling
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      // 1. Send Instant Gmail Notification to nextgenv.info@gmail.com
+      const res = await fetch('https://formsubmit.co/ajax/nextgenv.info@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `🚀 New Project Appointment: ${formData.fullName} (${formData.service})`,
+          'Full Name': formData.fullName,
+          'Email Address': formData.email,
+          'Phone / WhatsApp': formData.phone || 'N/A',
+          'Service Required': formData.service,
+          'Project Message': formData.message,
+          'Submitted At': new Date().toLocaleString()
+        })
+      });
+
+      // 2. Send to Google Sheets Webhook if configured
+      const sheetWebhookUrl = import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL;
+      if (sheetWebhookUrl) {
+        fetch(sheetWebhookUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        }).catch((err) => console.log('Google Sheets webhook error:', err));
+      }
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
       setSubmitted(true);
-    }, 800);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

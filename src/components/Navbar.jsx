@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
-import { IS_INDEPENDENCE_DAY_THEME, INDEPENDENCE_BANNER_TEXT } from '../config/themeConfig';
+import { IS_INDEPENDENCE_DAY_THEME } from '../config/themeConfig';
+import IndependenceOfferTimer from './IndependenceOfferTimer';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,20 +32,16 @@ export default function Navbar() {
 
   return (
     <>
-      {/* 🇮🇳 15th August Independence Day Top Tricolour Announcement Bar */}
+      {/* 🇮🇳 15th August Freedom Sale Live Countdown Timer Top Bar */}
       {IS_INDEPENDENCE_DAY_THEME && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#FF671F] via-[#FFFFFF] to-[#046A38] text-black font-extrabold text-xs sm:text-sm py-2 px-4 text-center shadow-md flex items-center justify-center gap-2 border-b border-black/10">
-          <span className="text-base animate-bounce">🇮🇳</span>
-          <span className="tracking-wide drop-shadow-xs font-black">
-            Happy Independence Day! Celebrating Freedom with Special Offers & Instant Support
-          </span>
-          <span className="text-base animate-bounce hidden sm:inline">🇮🇳</span>
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <IndependenceOfferTimer variant="banner" />
         </div>
       )}
 
       <header
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          IS_INDEPENDENCE_DAY_THEME ? 'top-[36px]' : 'top-0'
+          IS_INDEPENDENCE_DAY_THEME ? 'top-[42px] sm:top-[44px]' : 'top-0'
         } ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-gray-200/80 py-3 shadow-sm'

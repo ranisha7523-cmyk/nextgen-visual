@@ -3,6 +3,7 @@ import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { VIDEO_URLS, LOCAL_VIDEO_PATHS, getActiveVideoUrl } from '../config/videoUrls';
 import { IS_INDEPENDENCE_DAY_THEME } from '../config/themeConfig';
+import IndependenceOfferTimer from './IndependenceOfferTimer';
 
 export default function Hero() {
   const videoRef = useRef(null);
@@ -69,6 +70,15 @@ export default function Hero() {
                 We build modern websites, create AI-powered videos, and edit content that helps brands stand out online.
               </p>
             </AnimatedSection>
+
+            {/* 🇮🇳 15th August Flipkart/Amazon Style Live Countdown Card */}
+            {IS_INDEPENDENCE_DAY_THEME && (
+              <AnimatedSection direction="up" delay={350}>
+                <div className="pt-2">
+                  <IndependenceOfferTimer variant="card" />
+                </div>
+              </AnimatedSection>
+            )}
 
             {/* CTAs with Magnetic Hover Animations */}
             <AnimatedSection direction="up" delay={400}>

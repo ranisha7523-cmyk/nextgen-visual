@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { VIDEO_URLS, LOCAL_VIDEO_PATHS, getActiveVideoUrl } from '../config/videoUrls';
+import { IS_INDEPENDENCE_DAY_THEME } from '../config/themeConfig';
 
 export default function Hero() {
   const videoRef = useRef(null);
@@ -17,10 +18,19 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-white overflow-hidden">
-      {/* Dynamic Background Glowing Blobs */}
-      <div className="absolute top-10 right-1/4 w-96 h-96 bg-[#FFD600]/15 rounded-full blur-3xl -z-10 pointer-events-none animate-pulse-glow" />
-      <div className="absolute bottom-10 left-10 w-80 h-80 bg-gray-200/60 rounded-full blur-2xl -z-10 pointer-events-none animate-float" />
+    <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-white overflow-hidden">
+      {/* Dynamic Background Glowing Blobs with Tricolour Support */}
+      {IS_INDEPENDENCE_DAY_THEME ? (
+        <>
+          <div className="absolute top-10 right-1/4 w-96 h-96 bg-[#FF671F]/20 rounded-full blur-3xl -z-10 pointer-events-none animate-pulse-glow" />
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#046A38]/20 rounded-full blur-3xl -z-10 pointer-events-none animate-float" />
+        </>
+      ) : (
+        <>
+          <div className="absolute top-10 right-1/4 w-96 h-96 bg-[#FFD600]/15 rounded-full blur-3xl -z-10 pointer-events-none animate-pulse-glow" />
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-gray-200/60 rounded-full blur-2xl -z-10 pointer-events-none animate-float" />
+        </>
+      )}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -29,10 +39,19 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-6 text-left">
             
             <AnimatedSection direction="down" delay={100}>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-xs font-semibold uppercase tracking-wider text-black shadow-xs hover:border-[#FFD600] transition-colors">
-                <Sparkles className="w-3.5 h-3.5 text-black fill-[#FFD600] animate-spin" style={{ animationDuration: '6s' }} />
-                <span>Next-Gen Creative Studio</span>
-              </div>
+              {IS_INDEPENDENCE_DAY_THEME ? (
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FF671F]/10 via-white to-[#046A38]/10 border-2 border-[#FF671F]/40 text-xs font-black uppercase tracking-wider text-black shadow-sm">
+                  <span className="text-sm">🇮🇳</span>
+                  <span className="text-[#FF671F] font-black">15TH AUGUST</span>
+                  <span className="text-black">•</span>
+                  <span className="text-[#046A38] font-black">HAPPY INDEPENDENCE DAY</span>
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-xs font-semibold uppercase tracking-wider text-black shadow-xs hover:border-[#FFD600] transition-colors">
+                  <Sparkles className="w-3.5 h-3.5 text-black fill-[#FFD600] animate-spin" style={{ animationDuration: '6s' }} />
+                  <span>Next-Gen Creative Studio</span>
+                </div>
+              )}
             </AnimatedSection>
 
             <AnimatedSection direction="up" delay={200}>
@@ -124,8 +143,17 @@ export default function Hero() {
 
                   {/* Live Badge Overlay */}
                   <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full flex items-center gap-2 border border-white/20 shadow-lg">
-                    <span className="w-2 h-2 rounded-full bg-[#FFD600] animate-ping"></span>
-                    <span className="text-white font-bold tracking-wide">NEXTGEN REEL</span>
+                    {IS_INDEPENDENCE_DAY_THEME ? (
+                      <>
+                        <span className="text-sm">🇮🇳</span>
+                        <span className="text-[#FF671F] font-extrabold tracking-wide">15TH AUGUST EDITION</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-[#FFD600] animate-ping"></span>
+                        <span className="text-white font-bold tracking-wide">NEXTGEN REEL</span>
+                      </>
+                    )}
                   </div>
 
                   <div className="absolute bottom-4 inset-x-4 bg-black/80 backdrop-blur-md p-4 rounded-2xl border border-white/15 text-white flex items-center justify-between shadow-lg transform group-hover:translate-y-[-2px] transition-transform">

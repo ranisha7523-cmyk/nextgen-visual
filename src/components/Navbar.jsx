@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
+import { IS_INDEPENDENCE_DAY_THEME, INDEPENDENCE_BANNER_TEXT } from '../config/themeConfig';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,35 +30,52 @@ export default function Navbar() {
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-gray-200/80 py-3.5 shadow-sm'
-          : 'bg-white py-5 border-b border-gray-100'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center overflow-hidden border border-black shadow-md group-hover:scale-105 transition-transform duration-300">
-            <img
-              src="/assets/logo/logo.jpg"
-              alt="NextGen Visual Logo"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                // Fallback if logo fails to render
-                e.target.style.display = 'none';
-                e.target.parentNode.innerHTML = '<span class="text-yellow-400 font-bold text-lg">NG</span>';
-              }}
-            />
-          </div>
-          <div className="flex items-center text-xl sm:text-2xl font-extrabold tracking-tight">
-            <span className="text-black font-extrabold">NextGen</span>
-            <span className="ml-1 px-2 py-0.5 bg-[#FFD600] text-black text-sm uppercase rounded font-bold tracking-wider">
-              Visual
-            </span>
-          </div>
-        </a>
+    <>
+      {/* 🇮🇳 15th August Independence Day Top Tricolour Announcement Bar */}
+      {IS_INDEPENDENCE_DAY_THEME && (
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#FF671F] via-[#FFFFFF] to-[#046A38] text-black font-extrabold text-xs sm:text-sm py-2 px-4 text-center shadow-md flex items-center justify-center gap-2 border-b border-black/10">
+          <span className="text-base animate-bounce">🇮🇳</span>
+          <span className="tracking-wide drop-shadow-xs font-black">
+            Happy Independence Day! Celebrating Freedom with Special Offers & Instant Support
+          </span>
+          <span className="text-base animate-bounce hidden sm:inline">🇮🇳</span>
+        </div>
+      )}
+
+      <header
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+          IS_INDEPENDENCE_DAY_THEME ? 'top-[36px]' : 'top-0'
+        } ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md border-b border-gray-200/80 py-3 shadow-sm'
+            : 'bg-white py-4 border-b border-gray-100'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Brand Logo with Optional Tricolour Glow */}
+          <a href="#" className="flex items-center gap-3 group">
+            <div className={`w-10 h-10 rounded-xl bg-black flex items-center justify-center overflow-hidden border shadow-md group-hover:scale-105 transition-transform duration-300 ${
+              IS_INDEPENDENCE_DAY_THEME ? 'border-2 border-[#FF671F] shadow-[0_0_12px_rgba(255,103,31,0.4)]' : 'border-black'
+            }`}>
+              <img
+                src="/assets/logo/logo.jpg"
+                alt="NextGen Visual Logo"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentNode.innerHTML = '<span class="text-yellow-400 font-bold text-lg">NG</span>';
+                }}
+              />
+            </div>
+            <div className="flex items-center text-xl sm:text-2xl font-extrabold tracking-tight">
+              <span className="text-black font-extrabold">NextGen</span>
+              <span className={`ml-1 px-2 py-0.5 text-black text-sm uppercase rounded font-bold tracking-wider ${
+                IS_INDEPENDENCE_DAY_THEME ? 'bg-gradient-to-r from-[#FF671F] via-[#FFD600] to-[#046A38] text-white shadow-xs' : 'bg-[#FFD600]'
+              }`}>
+                Visual
+              </span>
+            </div>
+          </a>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
@@ -129,5 +147,6 @@ export default function Navbar() {
         </div>
       )}
     </header>
+    </>
   );
 }

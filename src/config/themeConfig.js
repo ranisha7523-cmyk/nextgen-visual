@@ -5,7 +5,7 @@
  * Set to false after 15th August celebrations to revert to default theme.
  */
 
-export const IS_INDEPENDENCE_DAY_THEME = true;
+export const IS_INDEPENDENCE_DAY_THEME = false;
 
 export const TRICOLOR_COLORS = {
   saffron: '#FF671F',

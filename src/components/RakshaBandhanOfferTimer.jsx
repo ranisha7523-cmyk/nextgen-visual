@@ -3,11 +3,10 @@ import { Timer, Gift, Sparkles, ArrowRight, Heart } from 'lucide-react';
 import { IS_RAKSHA_BANDHAN_THEME } from '../config/themeConfig';
 
 export default function RakshaBandhanOfferTimer({ variant = 'banner' }) {
-  // Target: Raksha Bandhan Special Offer Expiry Countdown
+  // Target: 29th August 2026 Midnight (29 Aug 23:59:59)
   const calculateTimeLeft = () => {
     const now = new Date();
-    // Raksha Bandhan Special Target
-    const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 2, 23, 59, 59);
+    const targetDate = new Date(now.getFullYear(), 7, 29, 23, 59, 59);
     
     const diff = targetDate.getTime() - now.getTime();
 
@@ -43,7 +42,11 @@ export default function RakshaBandhanOfferTimer({ variant = 'banner' }) {
       <div className="bg-gradient-to-r from-[#E91E63] via-[#8E24AA] to-[#D81B60] text-white py-2.5 px-4 shadow-xl border-b border-white/20 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm font-bold">
         {/* Left Side Tag */}
         <div className="flex items-center gap-2">
-          <span className="text-lg animate-bounce">🎀</span>
+          <img
+            src="/assets/images/rakhi.jpg"
+            alt="Rakhi"
+            className="w-6 h-6 object-cover rounded-full border border-[#FFD600] animate-pulse"
+          />
           <span className="bg-[#FFD600] text-black px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-sm flex items-center gap-1">
             <Gift className="w-3 h-3 fill-black" />
             <span>RAKHI SPECIAL SALE</span>
@@ -104,14 +107,21 @@ export default function RakshaBandhanOfferTimer({ variant = 'banner' }) {
       </div>
 
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-1 relative z-10">
-        <div>
-          <h4 className="text-white text-base font-extrabold tracking-tight flex items-center gap-1.5">
-            <span>Gift Your Brand Digital Success</span>
-            <Heart className="w-4 h-4 text-[#E91E63] fill-[#E91E63] inline" />
-          </h4>
-          <p className="text-gray-300 text-xs font-medium mt-0.5">
-            Special discounts on Website Building, AI Video Ads & Video Editing!
-          </p>
+        <div className="flex items-center gap-3">
+          <img
+            src="/assets/images/rakhi.jpg"
+            alt="Traditional Rakhi"
+            className="w-14 h-14 object-cover rounded-xl border-2 border-[#FFD600] shadow-md hover:scale-105 transition-transform"
+          />
+          <div>
+            <h4 className="text-white text-base font-extrabold tracking-tight flex items-center gap-1.5">
+              <span>Gift Your Brand Digital Success</span>
+              <Heart className="w-4 h-4 text-[#E91E63] fill-[#E91E63] inline" />
+            </h4>
+            <p className="text-gray-300 text-xs font-medium mt-0.5">
+              Special discounts on Website Building, AI Video Ads & Video Editing (Valid till 29th Aug)!
+            </p>
+          </div>
         </div>
 
         {/* Live Timer Clock Boxes */}

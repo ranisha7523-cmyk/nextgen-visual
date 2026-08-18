@@ -16,4 +16,4 @@ export const RAKSHA_BANDHAN_COLORS = {
   gradientBg: 'from-[#E91E63] via-[#8E24AA] to-[#D81B60]',
 };
 
-export const RAKSHA_BANDHAN_BANNER_TEXT = "🎀 Happy Raksha Bandhan! Gift Your Brand A Digital Boost with Flat 35% OFF Offers!";
+export const RAKSHA_BANDHAN_BANNER_TEXT = "🎀 Happy Raksha Bandhan! Gift Your Brand A Digital Boost with Flat 35% OFF Offers (Valid Till 29th Aug)!";

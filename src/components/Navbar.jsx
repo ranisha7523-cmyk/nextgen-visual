@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
-import { IS_INDEPENDENCE_DAY_THEME } from '../config/themeConfig';
+import { IS_INDEPENDENCE_DAY_THEME, IS_RAKSHA_BANDHAN_THEME } from '../config/themeConfig';
 import IndependenceOfferTimer from './IndependenceOfferTimer';
+import RakshaBandhanOfferTimer from './RakshaBandhanOfferTimer';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,6 +33,13 @@ export default function Navbar() {
 
   return (
     <>
+      {/* 🎀 Raksha Bandhan Special Live Offer Top Bar */}
+      {IS_RAKSHA_BANDHAN_THEME && (
+        <div className="fixed top-0 left-0 right-0 z-50">
+          <RakshaBandhanOfferTimer variant="banner" />
+        </div>
+      )}
+
       {/* 🇮🇳 15th August Freedom Sale Live Countdown Timer Top Bar */}
       {IS_INDEPENDENCE_DAY_THEME && (
         <div className="fixed top-0 left-0 right-0 z-50">
@@ -41,7 +49,7 @@ export default function Navbar() {
 
       <header
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          IS_INDEPENDENCE_DAY_THEME ? 'top-[42px] sm:top-[44px]' : 'top-0'
+          IS_RAKSHA_BANDHAN_THEME || IS_INDEPENDENCE_DAY_THEME ? 'top-[42px] sm:top-[44px]' : 'top-0'
         } ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-gray-200/80 py-3 shadow-sm'
@@ -49,9 +57,10 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Brand Logo with Optional Tricolour Glow */}
+          {/* Brand Logo with Optional Theme Glow */}
           <a href="#" className="flex items-center gap-3 group">
             <div className={`w-10 h-10 rounded-xl bg-black flex items-center justify-center overflow-hidden border shadow-md group-hover:scale-105 transition-transform duration-300 ${
+              IS_RAKSHA_BANDHAN_THEME ? 'border-2 border-[#E91E63] shadow-[0_0_12px_rgba(233,30,99,0.4)]' :
               IS_INDEPENDENCE_DAY_THEME ? 'border-2 border-[#FF671F] shadow-[0_0_12px_rgba(255,103,31,0.4)]' : 'border-black'
             }`}>
               <img
@@ -67,6 +76,7 @@ export default function Navbar() {
             <div className="flex items-center text-xl sm:text-2xl font-extrabold tracking-tight">
               <span className="text-black font-extrabold">NextGen</span>
               <span className={`ml-1 px-2 py-0.5 text-black text-sm uppercase rounded font-bold tracking-wider ${
+                IS_RAKSHA_BANDHAN_THEME ? 'bg-gradient-to-r from-[#E91E63] via-[#FFD600] to-[#8E24AA] text-white shadow-xs' :
                 IS_INDEPENDENCE_DAY_THEME ? 'bg-gradient-to-r from-[#FF671F] via-[#FFD600] to-[#046A38] text-white shadow-xs' : 'bg-[#FFD600]'
               }`}>
                 Visual

@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from 'react';
-import { ArrowRight, Play, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, Sparkles, Heart } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import { VIDEO_URLS, LOCAL_VIDEO_PATHS, getActiveVideoUrl } from '../config/videoUrls';
-import { IS_INDEPENDENCE_DAY_THEME } from '../config/themeConfig';
+import { IS_INDEPENDENCE_DAY_THEME, IS_RAKSHA_BANDHAN_THEME } from '../config/themeConfig';
 import IndependenceOfferTimer from './IndependenceOfferTimer';
+import RakshaBandhanOfferTimer from './RakshaBandhanOfferTimer';
 
 export default function Hero() {
   const videoRef = useRef(null);
@@ -20,8 +21,13 @@ export default function Hero() {
 
   return (
     <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-white overflow-hidden">
-      {/* Dynamic Background Glowing Blobs with Tricolour Support */}
-      {IS_INDEPENDENCE_DAY_THEME ? (
+      {/* Dynamic Background Glowing Blobs with Theme Support */}
+      {IS_RAKSHA_BANDHAN_THEME ? (
+        <>
+          <div className="absolute top-10 right-1/4 w-96 h-96 bg-[#E91E63]/20 rounded-full blur-3xl -z-10 pointer-events-none animate-pulse-glow" />
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#8E24AA]/20 rounded-full blur-3xl -z-10 pointer-events-none animate-float" />
+        </>
+      ) : IS_INDEPENDENCE_DAY_THEME ? (
         <>
           <div className="absolute top-10 right-1/4 w-96 h-96 bg-[#FF671F]/20 rounded-full blur-3xl -z-10 pointer-events-none animate-pulse-glow" />
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#046A38]/20 rounded-full blur-3xl -z-10 pointer-events-none animate-float" />
@@ -40,7 +46,14 @@ export default function Hero() {
           <div className="lg:col-span-7 space-y-6 text-left">
             
             <AnimatedSection direction="down" delay={100}>
-              {IS_INDEPENDENCE_DAY_THEME ? (
+              {IS_RAKSHA_BANDHAN_THEME ? (
+                <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#E91E63]/10 via-[#8E24AA]/10 to-[#E91E63]/10 border-2 border-[#E91E63]/40 text-xs font-black uppercase tracking-wider text-black shadow-sm">
+                  <span className="text-sm">🎀</span>
+                  <span className="text-[#E91E63] font-black">RAKSHA BANDHAN SPECIAL</span>
+                  <span className="text-black">•</span>
+                  <span className="text-[#8E24AA] font-black">FLAT 35% OFF</span>
+                </div>
+              ) : IS_INDEPENDENCE_DAY_THEME ? (
                 <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FF671F]/10 via-white to-[#046A38]/10 border-2 border-[#FF671F]/40 text-xs font-black uppercase tracking-wider text-black shadow-sm">
                   <span className="text-sm">🇮🇳</span>
                   <span className="text-[#FF671F] font-black">15TH AUGUST</span>
@@ -60,7 +73,9 @@ export default function Hero() {
                 Creative Digital Solutions For{' '}
                 <span className="relative inline-block px-2">
                   <span className="relative z-10 text-black">Modern Brands</span>
-                  <span className="absolute inset-x-0 bottom-1.5 h-4 sm:h-5 bg-[#FFD600] -z-10 rounded-sm transform -rotate-1 animate-sweep"></span>
+                  <span className={`absolute inset-x-0 bottom-1.5 h-4 sm:h-5 -z-10 rounded-sm transform -rotate-1 animate-sweep ${
+                    IS_RAKSHA_BANDHAN_THEME ? 'bg-[#FF80AB]' : 'bg-[#FFD600]'
+                  }`}></span>
                 </span>
               </h1>
             </AnimatedSection>
@@ -70,6 +85,15 @@ export default function Hero() {
                 We build modern websites, create AI-powered videos, and edit content that helps brands stand out online.
               </p>
             </AnimatedSection>
+
+            {/* 🎀 Raksha Bandhan Live Offer Countdown Card */}
+            {IS_RAKSHA_BANDHAN_THEME && (
+              <AnimatedSection direction="up" delay={350}>
+                <div className="pt-2">
+                  <RakshaBandhanOfferTimer variant="card" />
+                </div>
+              </AnimatedSection>
+            )}
 
             {/* 🇮🇳 15th August Flipkart/Amazon Style Live Countdown Card */}
             {IS_INDEPENDENCE_DAY_THEME && (
@@ -153,7 +177,12 @@ export default function Hero() {
 
                   {/* Live Badge Overlay */}
                   <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md text-white text-xs font-semibold px-3.5 py-1.5 rounded-full flex items-center gap-2 border border-white/20 shadow-lg">
-                    {IS_INDEPENDENCE_DAY_THEME ? (
+                    {IS_RAKSHA_BANDHAN_THEME ? (
+                      <>
+                        <span className="text-sm">🎀</span>
+                        <span className="text-[#FF80AB] font-extrabold tracking-wide">RAKHI SPECIAL EDITION</span>
+                      </>
+                    ) : IS_INDEPENDENCE_DAY_THEME ? (
                       <>
                         <span className="text-sm">🇮🇳</span>
                         <span className="text-[#FF671F] font-extrabold tracking-wide">15TH AUGUST EDITION</span>

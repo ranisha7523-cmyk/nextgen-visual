@@ -32,28 +32,26 @@ export default function Navbar() {
   ];
 
   return (
-    <>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* 🎀 Raksha Bandhan Special Live Offer Top Bar */}
       {IS_RAKSHA_BANDHAN_THEME && (
-        <div className="fixed top-0 left-0 right-0 z-50">
+        <div className="w-full">
           <RakshaBandhanOfferTimer variant="banner" />
         </div>
       )}
 
       {/* 🇮🇳 15th August Freedom Sale Live Countdown Timer Top Bar */}
       {IS_INDEPENDENCE_DAY_THEME && (
-        <div className="fixed top-0 left-0 right-0 z-50">
+        <div className="w-full">
           <IndependenceOfferTimer variant="banner" />
         </div>
       )}
 
-      <header
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          IS_RAKSHA_BANDHAN_THEME || IS_INDEPENDENCE_DAY_THEME ? 'top-[42px] sm:top-[44px]' : 'top-0'
-        } ${
+      <div
+        className={`w-full transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md border-b border-gray-200/80 py-3 shadow-sm'
-            : 'bg-white py-4 border-b border-gray-100'
+            ? 'bg-white/95 backdrop-blur-md border-b border-gray-200/80 py-2.5 sm:py-3 shadow-md'
+            : 'bg-white py-3 sm:py-4 border-b border-gray-100'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -153,7 +151,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
+      </div>
     </header>
-    </>
   );
 }

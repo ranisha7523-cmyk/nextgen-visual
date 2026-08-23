@@ -20,7 +20,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 bg-white overflow-hidden">
+    <section className="relative pt-44 sm:pt-48 md:pt-52 pb-20 md:pb-28 bg-white overflow-hidden">
       {/* Dynamic Background Glowing Blobs with Theme Support */}
       {IS_RAKSHA_BANDHAN_THEME ? (
         <>

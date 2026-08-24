@@ -10,6 +10,7 @@ import Portfolio from './components/Portfolio';
 import VideoShowcase from './components/VideoShowcase';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
+import PriceEstimator from './components/PriceEstimator';
 import ContactCTA from './components/ContactCTA';
 import Footer from './components/Footer';
 import WhatsAppFloating from './components/WhatsAppFloating';
@@ -52,7 +53,10 @@ export default function App() {
         {/* 10. FAQ Accordion */}
         <FAQ />
 
-        {/* 11. Contact CTA & Architecture-Ready Form */}
+        {/* 11. Interactive Instant Cost Estimator / Calculator */}
+        <PriceEstimator />
+
+        {/* 12. Contact CTA & Architecture-Ready Form */}
         <ContactCTA />
       </main>
 

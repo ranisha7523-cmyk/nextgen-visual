@@ -5,28 +5,28 @@ import AnimatedSection from './AnimatedSection';
 export default function CapabilityStrip() {
   const capabilities = [
     {
-      icon: Layers,
-      highlight: "3 Core",
-      label: "Services",
-      description: "Websites, AI Videos & Editing"
+      icon: Layout,
+      highlight: "50+",
+      label: "Websites Built",
+      description: "Modern, Responsive & High Converting"
     },
     {
       icon: Cpu,
-      highlight: "AI-Powered",
-      label: "Creativity",
-      description: "Cutting-Edge Visual Workflows"
-    },
-    {
-      icon: Layout,
-      highlight: "Modern Web",
-      label: "Experiences",
-      description: "Responsive & High Converting"
+      highlight: "100+",
+      label: "AI Videos",
+      description: "UGC Avatars & High-Impact Ads"
     },
     {
       icon: Film,
-      highlight: "Professional",
-      label: "Video Editing",
+      highlight: "250+",
+      label: "Video Edits",
       description: "Shorts, Reels & Cinema Quality"
+    },
+    {
+      icon: Layers,
+      highlight: "48-Hour",
+      label: "Express Delivery",
+      description: "Fast Turnaround & 24/7 Support"
     }
   ];
 

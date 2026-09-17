@@ -5,7 +5,7 @@
  * Set IS_INDEPENDENCE_DAY_THEME = true for 15th August Theme.
  */
 
-export const IS_RAKSHA_BANDHAN_THEME = true;
+export const IS_RAKSHA_BANDHAN_THEME = false;
 export const IS_INDEPENDENCE_DAY_THEME = false;
 
 export const RAKSHA_BANDHAN_COLORS = {
